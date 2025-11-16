@@ -102,6 +102,7 @@ const Index = () => {
             </div>
           </div>
         </div>
+        
       </section>
 
       {/* Contact Section */}
