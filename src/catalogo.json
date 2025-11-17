@@ -1,5 +1,4 @@
-{
-  "postres": [
+ [
     {
       "categoria": "Tartas Mojadas",
       "productos": [
@@ -52,4 +51,4 @@
       ]
     }
   ]
-}
+

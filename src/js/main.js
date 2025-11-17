@@ -1,79 +1,89 @@
-import { fetchProducts } from "./fetchProducts.js";
+/* ===========================
+   FUNCIÓN PARA CARGAR EL JSON
+=========================== */
 
-const categoriesSelect = document.getElementById("categories");
-const productsContainer = document.getElementById("products-container");
+async function fetchProducts(url) {
+    try {
+        const response = await fetch(url);
 
-// ======================
-// 1. Cargar JSON
-// ======================
-function loadData() {
-    return fetchProducts("./src/catalogo.json")
-        .then(result => {
-            if (!result.success) {
-                throw new Error("No se pudo cargar el JSON: " + result.body);
-            }
-            return result.body;
-        });
+        if (!response.ok) {
+            throw new Error(`Error HTTP: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        return {
+            success: true,
+            body: data
+        };
+
+    } catch (error) {
+        return {
+            success: false,
+            body: error.message
+        };
+    }
 }
 
-// ======================
-// 2. Renderizar productos
-// ======================
-function renderProducts(products) {
-    productsContainer.innerHTML = ""; // limpiar skeleton
+/* ===========================
+   RENDERIZAR PRODUCTOS
+=========================== */
 
-    products.forEach(postre => {
+function renderProducts(productos) {
+    const container = document.getElementById('products-container');
 
+    // Limpiar skeletons
+    container.innerHTML = "";
+
+    productos.forEach(prod => {
         const card = document.createElement("div");
-        card.className =
-            "space-y-4 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow";
+        card.className = "bg-white dark:bg-gray-800 p-4 rounded-2xl shadow space-y-4";
 
         card.innerHTML = `
-            <img src="${postre.imagen}" 
-                 alt="${postre.nombre}" 
-                 class="w-full h-40 object-cover rounded-lg" />
-
-            <h3 class="text-lg font-bold text-gray-900 dark:text-white">
-                ${postre.nombre}
-            </h3>
+            <img src="${prod.imagen}" alt="${prod.nombre}"
+                class="w-full h-40 object-cover rounded-lg">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white">${prod.nombre}</h3>
         `;
 
-        productsContainer.appendChild(card);
+        container.appendChild(card);
     });
 }
 
-// ======================
-// 3. Filtrar por categoría seleccionada
-// ======================
-function filterByCategory(data, categoryId) {
+/* ===========================
+   MAIN: CARGAR JSON Y ESCUCHAR SELECT
+=========================== */
 
-    const index = Number(categoryId) - 1;
+async function init() {
 
-    // Si no seleccionó categoría válida
-    if (index < 0) {
-        productsContainer.innerHTML = "<p class='text-center text-gray-500'>Seleccione una categoría</p>";
+    // URL de tu JSON RAW
+    const url = "https://raw.githubusercontent.com/JGAndrade03/LandingPage-Tarea/main/src/catalogo.json";
+
+    const { success, body } = await fetchProducts(url);
+
+    if (!success) {
+        console.error("Error cargando JSON:", body);
         return;
     }
 
-    const categoria = data.postres[index];
+    const data = body.postres;
 
-    if (!categoria) {
-        productsContainer.innerHTML = "<p class='text-center text-red-500'>Categoría no encontrada</p>";
-        return;
-    }
+    const select = document.getElementById("categories");
 
-    renderProducts(categoria.productos);
+    select.addEventListener("change", (event) => {
+        const value = event.target.value;
+        let categoria = "";
+
+        if (value === "1") categoria = "Tartas Mojadas";
+        if (value === "2") categoria = "Cheesecakes";
+        if (value === "3") categoria = "Galletas";
+
+        const seleccion = data.find(item => item.categoria === categoria);
+
+        if (seleccion) {
+            renderProducts(seleccion.productos);
+        }
+    });
 }
 
-// ======================
-// 4. Evento del select
-// ======================
-loadData().then(data => {
-
-    // Escuchar cambio en el select
-    categoriesSelect.addEventListener("change", () => {
-        const selected = categoriesSelect.value;
-        filterByCategory(data, selected);
-    });
-
-});
+// Ejecutar
+init();

@@ -153,17 +153,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-foreground/5 py-8">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-muted-foreground">
-            © 2024 Mel y Miel - Todos los derechos reservados
-          </p>
-          <p className="text-sm text-muted-foreground mt-2">
-            Endulzando vidas con amor y dedicación 🍯
-          </p>
-        </div>
-      </footer>
+
     </div>
   );
 };
