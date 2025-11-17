@@ -10,12 +10,15 @@ let fetchProducts =  (url) => {
                 throw new Error(`Error HTTP: ${response.status}`);
             }
 
+           
+
             return response.json();
 
         })
         .then(data => {
 
             // Respuesta exitosa
+        
             return {
                 success: true,
                 body: data

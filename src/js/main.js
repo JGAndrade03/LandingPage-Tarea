@@ -1,43 +1,20 @@
-/* ===========================
-   FUNCIÓN PARA CARGAR EL JSON
-=========================== */
+import { fetchProducts } from "./functions";
 
-async function fetchProducts(url) {
-    try {
-        const response = await fetch(url);
 
-        if (!response.ok) {
-            throw new Error(`Error HTTP: ${response.status}`);
-        }
 
-        const data = await response.json();
+async function renderProducts() {
+    try{
+        const datos = await fetchProducts('https://raw.githubusercontent.com/JGAndrade03/LandingPage-Tarea/main/src/catalogo.json')
+        alert("Cargados XD")
+         const container = document.getElementById('products-container');
 
-        return {
-            success: true,
-            body: data
-        };
+         if(datos.success){
+            alert("Dentro del if XD")
+              container.innerHTML = "";
 
-    } catch (error) {
-        return {
-            success: false,
-            body: error.message
-        };
-    }
-}
-
-/* ===========================
-   RENDERIZAR PRODUCTOS
-=========================== */
-
-function renderProducts(productos) {
-    const container = document.getElementById('products-container');
-
-    // Limpiar skeletons
-    container.innerHTML = "";
-
-    productos.forEach(prod => {
-        const card = document.createElement("div");
-        card.className = "bg-white dark:bg-gray-800 p-4 rounded-2xl shadow space-y-4";
+    datos.body.forEach(prod => {
+        let card = document.createElement("div");
+        card.classList = "bg-white dark:bg-gray-800 p-4 rounded-2xl shadow space-y-4";
 
         card.innerHTML = `
             <img src="${prod.imagen}" alt="${prod.nombre}"
@@ -47,6 +24,17 @@ function renderProducts(productos) {
 
         container.appendChild(card);
     });
+
+         }
+
+    }
+    catch(error){
+
+        alert(error.message)
+
+    }
+    
+   
 }
 
 /* ===========================
@@ -69,8 +57,9 @@ async function init() {
 
     const select = document.getElementById("categories");
 
-    select.addEventListener("change", (event) => {
-        const value = event.target.value;
+    select.addEventListener("change", async (event)  => {
+        event.preventDefault()
+        const value = select.value;
         let categoria = "";
 
         if (value === "1") categoria = "Tartas Mojadas";
@@ -80,10 +69,12 @@ async function init() {
         const seleccion = data.find(item => item.categoria === categoria);
 
         if (seleccion) {
-            renderProducts(seleccion.productos);
+           await renderProducts(seleccion.productos);
         }
     });
 }
 
 // Ejecutar
-init();
+await renderProducts();
+await init();
+

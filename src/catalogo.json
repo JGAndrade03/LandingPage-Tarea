@@ -1,54 +1,62 @@
  [
     {
+      "categoria": "Tartas Mojadas",   
+      "nombre": "Mojada de Chocolate",
+      "precio": "2.55",
+      "imagen": "https://www.recetasnestle.com.ec/sites/default/files/srh_recipes/5b6f3d71aaa5c238bf2f81ba67de82c0.jpg"
+  
+    },
+    {
       "categoria": "Tartas Mojadas",
-      "productos": [
-        {
-          "nombre": "Mojada de Chocolate",
-          "imagen": "https://www.recetasnestle.com.ec/sites/default/files/srh_recipes/5b6f3d71aaa5c238bf2f81ba67de82c0.jpg"
-        },
-        {
-          "nombre": "Tres Leches",
-          "imagen": "https://cdn0.recetasgratis.net/es/posts/0/1/9/torta_tres_leches_8910_orig.jpg"
-        },
-        {
-          "nombre": "Torta Mojada de Vainilla",
-          "imagen": "https://todosobrereposteria.com/wp-content/uploads/2023/06/torta-de-vainilla-01.jpg"
-        }
-      ]
+      "nombre": "Tres Leches",
+      "precio": "2.60",
+      "imagen": "https://cdn0.recetasgratis.net/es/posts/0/1/9/torta_tres_leches_8910_orig.jpg"
+
+    },
+    {
+      "categoria": "Tartas Mojadas",
+      "nombre": "Torta Mojada de Vainilla",
+      "precio": "2.50",
+      "imagen": "https://todosobrereposteria.com/wp-content/uploads/2023/06/torta-de-vainilla-01.jpg"
     },
     {
       "categoria": "Cheesecakes",
-      "productos": [
-        {
-          "nombre": "Cheesecake de Frutilla",
-          "imagen": "https://www.recetasnestle.cl/sites/default/files/srh_recipes/bb0a8b1cfca8f77eec55fb6f1fc17390.jpg"
-        },
-        {
-          "nombre": "Cheesecake de Maracuyá",
-          "imagen": "https://granvita.com/wp-content/uploads/2025/03/cheesecake-de-maracuya-avena.png"
-        },
-        {
-          "nombre": "New York Cheesecake",
-          "imagen": "https://www.biggerbolderbaking.com/wp-content/uploads/2020/10/Baked-Cheesecake-Thumbnail2-scaled.jpg"
-        }
-      ]
+      "nombre": "Cheesecake de Frutilla",
+      "precio": "2.00",
+      "imagen": "https://www.recetasnestle.cl/sites/default/files/srh_recipes/bb0a8b1cfca8f77eec55fb6f1fc17390.jpg"
+    },
+    {
+      "categoria":"Cheesecakes",
+      "nombre": "Cheesecake de Maracuyá",
+      "precio": "2.00",
+      "imagen": "https://granvita.com/wp-content/uploads/2025/03/cheesecake-de-maracuya-avena.png"
+    },
+    {
+      "categoria":"Cheesecakes",
+      "nombre": "New York Cheesecake",
+      "precio": "2.00",
+      "imagen": "https://www.biggerbolderbaking.com/wp-content/uploads/2020/10/Baked-Cheesecake-Thumbnail2-scaled.jpg"
+    },
+    
+    {
+      "categoria": "Galletas",
+      "nombre": "Galletas con Chispas de Chocolate",
+      "precio": "1.25",
+      "imagen": "https://www.cocinadelirante.com/sites/default/files/images/2018/08/galletas-caseras-de-chispas-de-chocolate-sin-horno.jpg"
     },
     {
       "categoria": "Galletas",
-      "productos": [
-        {
-          "nombre": "Galletas con Chispas de Chocolate",
-          "imagen": "https://www.cocinadelirante.com/sites/default/files/images/2018/08/galletas-caseras-de-chispas-de-chocolate-sin-horno.jpg"
-        },
-        {
-          "nombre": "Galletas de Avena",
-          "imagen": "https://www.hola.com/horizon/landscape/e2a7b418d503-adobestock1138557673.jpg"
-        },
-        {
-          "nombre": "Galletas de Mantequilla",
-          "imagen": "https://imag.bonviveur.com/galletas-de-mantequilla-lista-para-comer.jpg"
-        }
-      ]
+      "nombre": "Galletas de Avena",
+      "precio": "1.25",
+      "imagen": "https://www.hola.com/horizon/landscape/e2a7b418d503-adobestock1138557673.jpg"
+    },
+    {
+      "categoria": "Galletas",
+      "nombre": "Galletas de Mantequilla",
+      "precio": "1.25",
+      "imagen": "https://imag.bonviveur.com/galletas-de-mantequilla-lista-para-comer.jpg"
     }
+    
+  
   ]
 
