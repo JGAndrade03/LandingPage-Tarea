@@ -26,9 +26,9 @@ const Index = () => {
                 Galletas decoradas temáticas para celebrar este Halloween
               </p>
             </div>
-            <Button size="lg" className="text-lg px-8 py-6">
+            <a className="text-lg px-8 py-6" href="#products-container">
               Ver Catálogo
-            </Button>
+            </a>
           </div>
         </div>
         <div className="absolute top-0 right-0 -mt-20 -mr-20 h-64 w-64 rounded-full bg-primary/10 blur-3xl"></div>
@@ -144,7 +144,7 @@ const Index = () => {
                 </div>
               </div>
               <div className="mt-8 text-center">
-                <Button size="lg" className="w-full md:w-auto">
+                <Button size="lg" className="w-full md:w-auto" onClick={() => window.open('https://www.instagram.com/melymiel.ec')}>
                   Hacer un Pedido
                 </Button>
               </div>
