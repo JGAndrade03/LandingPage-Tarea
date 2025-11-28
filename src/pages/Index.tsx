@@ -153,8 +153,37 @@ const Index = () => {
         </div>
       </section>
 
+      {/*Forms sections*/ }
+
+      <section className="flex flex-col items-center justify-center bg-white py-8">
+    <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+       <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Vota por tu producto preferido</h2>
+
+       <div className="mb-6">
+       <form id="form_voting" className="relative flex items-center">
+          <select id="select_product"
+             className="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-3 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+             <option value="" disabled selected>Seleccione un producto</option>
+             <option value="product1">Producto 1</option>
+             <option value="product2">Producto 2</option>
+             <option value="product3">Producto 3</option>
+          </select>
+          <button
+             className="ml-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+             VOTAR
+          </button>
+       </form>
+       </div>
+
+       <div id="results" className="border border-gray-300 rounded-lg h-52 w-full p-2 bg-gray-50">
+          <p className="text-gray-500 text-center mt-16">Resultado de la votación</p>
+       </div>
+    </div>
+</section>
+    
 
     </div>
+    
   );
 };
 
